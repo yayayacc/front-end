@@ -1,5 +1,5 @@
 # nginx配置
-
+# 我特么真牛逼
 #user  nobody;
 worker_processes  1;
 
