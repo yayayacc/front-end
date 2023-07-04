@@ -244,13 +244,6 @@ const checkLogin = () => {
 checkLogin();
 
 
-
-
-
-
-
-
-
 </script>
 
 

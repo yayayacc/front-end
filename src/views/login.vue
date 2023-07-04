@@ -142,44 +142,6 @@ const login = () => {
 };
 
 
-
-
-// 下面是要加入到home页面的代码
-import { h } from 'vue'
-import { ElNotification } from 'element-plus'
-
-let aaa = 1; // aaa是今日获得的文档碎片个数
-const open2 = () => {
-  ElNotification({
-    title: '',
-    message: `登录成功，获得${ aaa }个文档碎片`,
-    duration: 0,
-  })
-}
-const open1 = () => {
-  ElNotification({
-    title: '',
-    message: `登录成功`,
-    duration: 0,
-  })
-}
-// open2();
-// const route = useRoute();
-// let loginFlag = route.query.loginFlag;
-// let myLoginFlag = false; // true 代表第一次登录， false 代表非今日第一次登录
-const checkLogin = (myLoginFlag) => {
-  if(myLoginFlag){
-    open2();
-  }
-  else{
-    open1();
-  }
-} 
-// checkLogin(myLoginFlag); 
-
-
-
-
 </script>
 
 
