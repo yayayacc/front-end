@@ -8,7 +8,7 @@ const routes = [
   // 访问路由"/", 自动重定向到"/home"
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/login'
   },  
   {
     // 主页面

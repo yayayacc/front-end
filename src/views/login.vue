@@ -115,7 +115,7 @@ window.onkeydown = ($event) => {
 }
 
 
-import { useRouter } from 'vue-router'
+// import { useRouter } from 'vue-router'
 const homepage_router = useRouter(); // 获取路由器
 let fragments = 0;
 // let myLoginFlag = false; // true 代表第一次登录， false 代表非今日第一次登录
