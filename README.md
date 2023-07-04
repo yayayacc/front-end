@@ -1,5 +1,5 @@
 # nginx配置
-
+# 测试一下
 #user  nobody;
 worker_processes  1;
 
