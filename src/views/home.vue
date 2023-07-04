@@ -4,7 +4,7 @@
 
     <el-header>
           <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-              <el-menu-item index="1"><strong>主页</strong></el-menu-item>
+              <el-menu-item index="1" @click="jumpHome"><strong>主页</strong></el-menu-item>
               <el-sub-menu index="2">
                 <template #title><strong>网站导航</strong></template>
                   <el-menu-item index="2-1">item one</el-menu-item>
@@ -17,7 +17,7 @@
                     <el-menu-item index="2-4-3">item three</el-menu-item>
                   </el-sub-menu>
               </el-sub-menu>
-              <el-menu-item index="3" ><strong>个人中心</strong></el-menu-item>
+              <el-menu-item index="3" @click="jumpUser"><strong>个人中心</strong></el-menu-item>
               <el-menu-item index="4" text @click="dialogVisible = true"><strong>文档发布</strong></el-menu-item>      
           </el-menu>
 
@@ -218,7 +218,13 @@ const handleClose = (done) => {
     })
 }
 
+const jumpHome = () => {
+  router.push( { path: '/home'})
+}
 
+const jumpUser = () => {
+  router.push( { path: '/user'})
+}
 
 
 
