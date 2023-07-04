@@ -81,7 +81,7 @@
                                     </div>
                                     <div style="font-size: large;">用户名有七个字</div>
                                     <div style="font-size: medium;">文档碎片：999</div>
-                                    <el-button @click="pay">充值</el-button>
+                                    <el-button @click="jumpPay">充值</el-button>
                                 </div>
                             </el-col>
                         </el-aside>
@@ -184,12 +184,7 @@
 
 const router = useRouter(); // 获取路由器
 const input = ref('');
-const pay = () => {
-    // 跳转1 追加历史记录，可以返回
-    router.push({ path: '/pay' })
-    // 跳转2 替换当前历史记录，不能返回
-    // router.replace({path: '/login'})
-}
+
 import { ref } from 'vue'
 import { Search, StarFilled, UploadFilled } from '@element-plus/icons-vue'
 import { get } from '@/common'
@@ -202,6 +197,23 @@ const jump = () => {
     });
 
 }
+const jumpUser = () => {
+    router.push({ path: '/user' })
+}
+const jumpHome = () => {
+    router.push({ path: '/home' })
+}
+const jumpPay = () => {
+    window.open("http://192.168.43.138:8899/alipay/");
+}
+
+/*  const getRoleList = () => {
+ // 获取文件碎片，未实装
+get('/role/role-list').then(res=>{
+ roleList.value = res.data;
+ })
+ }
+ getRoleList();*/
 
 const count = ref(0);
 const load = () => {
@@ -215,13 +227,6 @@ const handleSelect = (key, keyPath) => {
     console.log(key, keyPath)
 }
 
-const jumpHome = () => {
-    router.push({ path: '/home' })
-}
-
-const jumpUser = () => {
-    router.push({ path: '/user' })
-}
 
 const dialogVisible = ref(false)
 const handleClose = (done) => {

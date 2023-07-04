@@ -115,6 +115,9 @@ window.onkeydown = ($event) => {
 }
 
 
+import { useRouter } from 'vue-router'
+const homepage_router = useRouter(); // 获取路由器
+let fragments = 0;
 // let myLoginFlag = false; // true 代表第一次登录， false 代表非今日第一次登录
 const login = () => {
   loginForm.value.validate((valid) => {
@@ -125,10 +128,14 @@ const login = () => {
         // 从回送结果中取出令牌，并将令牌存于客户端
         // Console.log(loginUser.userCode);
         setLocalToken(result.data);
-        // myLoginFlag = result.first; // first 可能要更改
+        
+        post().then( res=> { // TODO: 这里还需要填写post里面的参数
+          fragments = res;
+        })
         tip.success("登录成功！");
+
         // 通过路由导航到home页面
-        router.push({ path: "/home", query: {loginFlag: true} });
+        homepage_router.push({ path: "/home", query: {loginFlag: true, fragment: fragments} });
       });
     }
   });
@@ -159,7 +166,7 @@ const open1 = () => {
 // open2();
 // const route = useRoute();
 // let loginFlag = route.query.loginFlag;
-let myLoginFlag = false; // true 代表第一次登录， false 代表非今日第一次登录
+// let myLoginFlag = false; // true 代表第一次登录， false 代表非今日第一次登录
 const checkLogin = (myLoginFlag) => {
   if(myLoginFlag){
     open2();
